@@ -1,34 +1,27 @@
 # 🚌 LocBus – Monitoramento de Ônibus em Tempo Real
 
 ## 📌 Visão Geral
-O **LocBus** é um **projeto acadêmico** desenvolvido com **Spring Boot**, cujo objetivo é simular um sistema de monitoramento de ônibus em tempo real. O foco principal é oferecer informações sobre **localização, rotas e horários**, proporcionando aos usuários do transporte público uma experiência mais eficiente e confiável.
+O **LocBus** é um **projeto acadêmico** desenvolvido com **Spring Boot**, cujo objetivo é consumir uma **API externa de localização de ônibus** e fornecer informações organizadas aos usuários do transporte público. O projeto permite acessar dados em tempo real, filtrando e processando informações para que o usuário tenha uma experiência mais eficiente e confiável.
 
 ---
 
 ## ⚙️ Tecnologias
 - **Java 21**
 - **Spring Boot** (Web, Data JPA)
-- **H2 Database** (para testes)
-- **PostgreSQL** (para produção)
 - **Maven**
 - **Docker** (opcional, para containerização)
+
+> Observação: Banco de dados não é necessário, pois os dados são consumidos diretamente da API externa, mas pode ser usado para testes ou armazenamento temporário.
 
 ---
 
 ## 📂 Estrutura do Projeto
 ```
-src/
- └── main/
-      ├── java/
-      │    └── com.locbus/
-      │         ├── controllers/   # Endpoints REST
-      │         ├── dto/           # Objetos de transferência de dados
-      │         ├── entities/      # Entidades do sistema
-      │         ├── repositories/  # Interfaces de persistência
-      │         └── services/      # Regras de negócio
-      └── resources/
-           ├── application.properties
-           └── data.sql (dados de teste)
+com.locbus
+ ├── controllers/      # Endpoints REST que o frontend vai consumir
+ ├── services/         # Lógica para consumir e processar a API externa
+ ├── dto/              # Objetos de transferência de dados para o frontend
+ └── config/           # Configurações da aplicação (ex: URL da API externa)
 ```
 
 ---
@@ -56,28 +49,26 @@ Aplicação disponível em:
 ---
 
 ## 📡 Endpoints Principais
-- `GET /buses` → Lista todos os ônibus cadastrados
-- `GET /buses/{id}` → Detalhes de um ônibus específico
-- `GET /buses/active` → Lista apenas os ônibus em operação
-- `GET /routes` → Retorna todas as rotas disponíveis
+- `GET /buses` → lista todos os ônibus retornados da API externa
+- `GET /buses/active` → somente ônibus em operação
+- `GET /routes` → rotas disponíveis (se fornecidas pela API)
 
 ---
 
-## 🎯 Objetivos Acadêmicos
-Este projeto foi desenvolvido para fins **educacionais** e tem como objetivos:
-- Praticar o uso de **Spring Boot** e **arquitetura em camadas**.
-- Simular um caso real de **aplicação para transporte público**.
-- Explorar boas práticas de **documentação e versionamento** de software.
+## 🎯 Objetivos Acadêmicos e Técnicos
+Este projeto tem como objetivo:
+- Desenvolver um backend funcional em **Spring Boot**, aplicando boas práticas de arquitetura em camadas (Controller → Service → DTOs).
+- Consumir dados de uma **API externa** e processá-los para uso próprio, mantendo controle total do projeto.
+- Simular um caso real de **monitoramento de transporte público**, permitindo fácil expansão futura.
 
 ---
 
 ## 📌 Futuras Implementações
-Para evolução do projeto, estão previstas as seguintes melhorias:
-- Integração com **API de geolocalização/GPS** para rastreamento real.
-- Painel administrativo para **gerenciamento de linhas e ônibus**.
+- Integração com **API de geolocalização/GPS** para rastreamento em tempo real.
+- Painel administrativo para **gerenciamento de rotas** e monitoramento.
 - Sistema de **autenticação de usuários** (JWT/OAuth2).
 - Integração com **mapas interativos** (Google Maps ou Leaflet).
-- Notificações em tempo real sobre **atrasos e mudanças de rota**.
+- Notificações sobre **atrasos e mudanças de rota**.
 
 ---
 
