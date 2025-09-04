@@ -1,12 +1,11 @@
 package controllers;
 
-
 import DTO.BusDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import services.BusService;
+import services.BusLocationService;
 
 import java.util.List;
 
@@ -15,11 +14,17 @@ import java.util.List;
 public class BusController {
 
     @Autowired
-    private BusService busService;
+    private BusLocationService busLocationService;
 
     @GetMapping
-    public List<BusDTO> findAll() {
-        return busService.findAll();
+    public List<BusDTO> getAllBuses() {
+        return busLocationService.getAllBuses();
     }
+
+    @GetMapping("/active")
+    public List<BusDTO> getActiveBuses() {
+        return busLocationService.getActiveBuses();
+    }
+
 
 }
