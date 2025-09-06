@@ -27,18 +27,16 @@ public class BusLocationService {
     private void simulateMovement() {
         for (BusDTO bus : buses) {
             if (bus.isActive()) {
-                double latChange = (random.nextDouble() - 0.5) * 0.001; // ~100m
+                double latChange = (random.nextDouble() - 0.5) * 0.001;
                 double lonChange = (random.nextDouble() - 0.5) * 0.001;
                 bus.setLatitude(bus.getLatitude() + latChange);
                 bus.setLongitude(bus.getLongitude() + lonChange);
             }
         }
     }
-
-
     public List<BusDTO> getAllBuses() {
         simulateMovement();
-        return new ArrayList<>(buses); // devolve cópia
+        return new ArrayList<>(buses);
     }
 
 
