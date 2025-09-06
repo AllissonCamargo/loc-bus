@@ -1,16 +1,17 @@
-package controllers;
+package com.locbusapp.locbus.controllers;
 
-import DTO.BusDTO;
+import com.locbusapp.locbus.DTO.BusDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import services.BusLocationService;
+import com.locbusapp.locbus.services.BusLocationService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/buses")
+@RequestMapping("/buses")
 public class BusController {
 
     @Autowired

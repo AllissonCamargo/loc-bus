@@ -1,4 +1,4 @@
-package DTO;
+package com.locbusapp.locbus.DTO;
 
 
 import lombok.AllArgsConstructor;
