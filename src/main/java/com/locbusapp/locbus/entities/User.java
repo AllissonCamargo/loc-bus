@@ -1,4 +1,4 @@
-package entities;
+package com.locbusapp.locbus.entities;
 
 import com.locbusapp.locbus.DTO.FavoriteDTO;
 

@@ -1,0 +1,32 @@
+//@Service
+//public class BusLocationServiceAPI {
+//    private final WebClient webClient;
+//
+//    public BusLocationService() {
+//        this.webClient = WebClient.builder().baseUrl("url da api").build();
+//    }
+//
+//    public List<BusDTO> getAllBuses() {
+//
+//
+//        return webClient.get().uri("/buses")
+//                .retrieve()
+//                .bodyToFlux(BusDTO.class)
+//                .collectList()
+//                .block();
+//    }
+//
+//    public List<BusDTO> getActiveBuses() {
+//        return getAllBuses().stream().filter(BusDTO::isActive).collect(Collectors.toList());
+//    }
+//
+//    public List<RouteDTO> getRoutes() {
+//        return webClient.get()
+//                .uri("/routes")
+//                .retrieve()
+//                .bodyToFlux(RouteDTO.class)
+//                .collectList()
+//                .block();
+//    }
+//
+//}
